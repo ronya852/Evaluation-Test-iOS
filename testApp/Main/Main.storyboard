@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="neU-Vh-NlK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Albums-->
+        <scene sceneID="O7F-r8-6yP">
+            <objects>
+                <viewController restorationIdentifier="MainViewController" storyboardIdentifier="MainViewController" id="6tT-sj-vFa" customClass="MainViewController" customModule="testApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u5A-4h-1Fq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="m6j-Ng-lK8">
+                                <rect key="frame" x="0.0" y="38" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BMm-dm-siP">
+                                <rect key="frame" x="0.0" y="93" width="414" height="803"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HaY-ua-IsJ">
+                                    <size key="itemSize" width="400" height="140"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="TrackCollectionViewCell" reuseIdentifier="AlbumCell" id="emC-V5-LFi" customClass="AlbumCell" customModule="testApp" customModuleProvider="target">
+                                        <rect key="frame" x="7" y="0.0" width="400" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="FFA-Si-eqp" customClass="TrackCollectionViewCell" customModule="testApp" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jesus of Cool" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5N-em-gV0">
+                                                    <rect key="frame" x="144" y="40" width="246" height="20"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zv2-c2-iGl">
+                                                    <rect key="frame" x="5" y="5" width="125" height="130"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="5mj-hx-mSx"/>
+                                                        <constraint firstAttribute="height" constant="125" id="dTv-l2-INp"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="15"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nick Lowe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCz-Nl-c5i">
+                                                    <rect key="frame" x="144" y="80" width="246" height="20"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="RCz-Nl-c5i" secondAttribute="trailing" constant="10" id="20I-IO-dnH"/>
+                                                <constraint firstItem="zv2-c2-iGl" firstAttribute="top" secondItem="FFA-Si-eqp" secondAttribute="top" constant="5" id="7Hz-zt-Tmk"/>
+                                                <constraint firstAttribute="bottom" secondItem="zv2-c2-iGl" secondAttribute="bottom" constant="5" id="UXs-Q3-o8m"/>
+                                                <constraint firstItem="V5N-em-gV0" firstAttribute="centerY" secondItem="FFA-Si-eqp" secondAttribute="centerY" constant="-20" id="W0b-hq-ob1"/>
+                                                <constraint firstItem="V5N-em-gV0" firstAttribute="leading" secondItem="zv2-c2-iGl" secondAttribute="trailing" constant="14" id="XIp-aP-Ydl"/>
+                                                <constraint firstItem="V5N-em-gV0" firstAttribute="centerX" secondItem="RCz-Nl-c5i" secondAttribute="centerX" id="ep6-iT-LgE"/>
+                                                <constraint firstItem="zv2-c2-iGl" firstAttribute="leading" secondItem="FFA-Si-eqp" secondAttribute="leading" constant="5" id="g3z-1H-MEL"/>
+                                                <constraint firstItem="RCz-Nl-c5i" firstAttribute="top" secondItem="V5N-em-gV0" secondAttribute="bottom" constant="20" id="iHJ-ey-H1h"/>
+                                                <constraint firstItem="V5N-em-gV0" firstAttribute="top" relation="lessThanOrEqual" secondItem="FFA-Si-eqp" secondAttribute="top" constant="40" id="ioU-7F-0SU"/>
+                                                <constraint firstItem="RCz-Nl-c5i" firstAttribute="leading" secondItem="zv2-c2-iGl" secondAttribute="trailing" constant="14" id="jCL-iv-Mnw"/>
+                                                <constraint firstItem="RCz-Nl-c5i" firstAttribute="centerY" secondItem="FFA-Si-eqp" secondAttribute="centerY" constant="20" id="mXQ-2G-vBp"/>
+                                                <constraint firstAttribute="trailing" secondItem="V5N-em-gV0" secondAttribute="trailing" constant="10" id="mgD-Om-uz9"/>
+                                                <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="RCz-Nl-c5i" secondAttribute="bottom" constant="40" id="mzk-1h-ran"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="albumArtistLabel" destination="RCz-Nl-c5i" id="azO-tC-Qwf"/>
+                                            <outlet property="albumImage" destination="zv2-c2-iGl" id="EqY-a3-BYH"/>
+                                            <outlet property="albumNameLabel" destination="V5N-em-gV0" id="ctS-50-4mG"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To start the album search, press the button" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1h-zR-jZH">
+                                <rect key="frame" x="20" y="455" width="374" height="20"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9v-OD-py6">
+                                <rect key="frame" x="195" y="494" width="24.5" height="22"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large" renderingMode="original"/>
+                                </state>
+                                <connections>
+                                    <action selector="startSearchButton:" destination="6tT-sj-vFa" eventType="touchUpInside" id="zi8-OP-Ynl"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Yxr-F1-qHm">
+                                <rect key="frame" x="188.5" y="456.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nxg-H9-FEm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yxr-F1-qHm" firstAttribute="centerY" secondItem="nxg-H9-FEm" secondAttribute="centerY" id="1nd-Qe-8yd"/>
+                            <constraint firstItem="BMm-dm-siP" firstAttribute="centerX" secondItem="nxg-H9-FEm" secondAttribute="centerX" id="2WR-ZO-xMX"/>
+                            <constraint firstItem="b1h-zR-jZH" firstAttribute="leading" secondItem="nxg-H9-FEm" secondAttribute="leading" constant="20" id="CNQ-Mq-I5X"/>
+                            <constraint firstItem="BMm-dm-siP" firstAttribute="bottom" secondItem="nxg-H9-FEm" secondAttribute="bottom" constant="34" id="HOU-In-RkX"/>
+                            <constraint firstItem="nxg-H9-FEm" firstAttribute="trailing" secondItem="BMm-dm-siP" secondAttribute="trailing" id="Op9-QF-Fce"/>
+                            <constraint firstItem="Yxr-F1-qHm" firstAttribute="centerX" secondItem="nxg-H9-FEm" secondAttribute="centerX" id="PWr-fV-Jca"/>
+                            <constraint firstItem="b1h-zR-jZH" firstAttribute="centerY" secondItem="nxg-H9-FEm" secondAttribute="centerY" constant="-10" id="ReX-Gm-cSs"/>
+                            <constraint firstItem="B9v-OD-py6" firstAttribute="centerX" secondItem="nxg-H9-FEm" secondAttribute="centerX" id="XLY-F1-pCz"/>
+                            <constraint firstItem="b1h-zR-jZH" firstAttribute="centerX" secondItem="nxg-H9-FEm" secondAttribute="centerX" id="YKy-44-wrH"/>
+                            <constraint firstItem="BMm-dm-siP" firstAttribute="leading" secondItem="nxg-H9-FEm" secondAttribute="leading" id="dHr-aG-Az6"/>
+                            <constraint firstItem="BMm-dm-siP" firstAttribute="top" secondItem="m6j-Ng-lK8" secondAttribute="bottom" constant="-1" id="elf-8w-dxy"/>
+                            <constraint firstItem="m6j-Ng-lK8" firstAttribute="leading" secondItem="nxg-H9-FEm" secondAttribute="leading" id="g5N-jc-tjZ"/>
+                            <constraint firstItem="m6j-Ng-lK8" firstAttribute="top" secondItem="nxg-H9-FEm" secondAttribute="top" constant="-50" id="jVj-fi-fRG"/>
+                            <constraint firstItem="m6j-Ng-lK8" firstAttribute="trailing" secondItem="nxg-H9-FEm" secondAttribute="trailing" id="nj3-wc-1ya"/>
+                            <constraint firstItem="B9v-OD-py6" firstAttribute="centerY" secondItem="nxg-H9-FEm" secondAttribute="centerY" constant="30" id="u2l-yY-STb"/>
+                            <constraint firstItem="nxg-H9-FEm" firstAttribute="trailing" secondItem="b1h-zR-jZH" secondAttribute="trailing" constant="20" id="ucE-kt-afk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search Albums" id="ZD6-em-rlk"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Yxr-F1-qHm" id="C6H-Y6-rWf"/>
+                        <outlet property="collectionView" destination="BMm-dm-siP" id="rhN-NK-abA"/>
+                        <outlet property="searchBar" destination="m6j-Ng-lK8" id="hsJ-Rl-sF6"/>
+                        <outlet property="searchBarConstraint" destination="jVj-fi-fRG" id="27k-lu-6Md"/>
+                        <outlet property="startSearchButton" destination="B9v-OD-py6" id="YCD-Di-quO"/>
+                        <outlet property="startSearchButtonConstraint" destination="XLY-F1-pCz" id="tXp-4D-bXU"/>
+                        <outlet property="startSearchLabel" destination="b1h-zR-jZH" id="yEO-AI-qQe"/>
+                        <outlet property="startSearchLabelConstraint" destination="YKy-44-wrH" id="bBQ-al-3Vv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBG-3U-3e2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="955.07246376811599" y="26.785714285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="K7N-xm-WAY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="neU-Vh-NlK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6ta-k5-jOe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="TrebuchetMS-Bold" family="Trebuchet MS" pointSize="17"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y0P-rj-ncI">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="6tT-sj-vFa" kind="relationship" relationship="rootViewController" id="8zn-z2-7tk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y5H-X6-6ie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="26.785714285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
