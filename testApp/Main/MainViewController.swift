@@ -87,30 +87,42 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 // MARK: - SearchBar methods
 
 extension MainViewController: UISearchBarDelegate {
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        if searchBar.text != nil || searchBar.text != "" {
-            self.getAlbumsAction()
-            DataService.shared.getAlbums(searchBar.text!) { (requestedAlbums) in
-                self.albums = requestedAlbums.sorted(by: {$0.collectionName ?? "" < $1.collectionName ?? ""})
-                DispatchQueue.main.async {
-                    let resultCount = requestedAlbums.count
-                    if resultCount == 0 {
-                        let archiveMenu = UIAlertController(title: nil, message: "Not found", preferredStyle: .alert)
-                        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-                        
-                        archiveMenu.addAction(cancelAction)
-                        
-                        self.present(archiveMenu, animated: true, completion: nil)
+        let request = searchBar.text
+        if englishAlphabet() {
+            if request == nil || request == "" {
+                albums.removeAll()
+                self.collectionView.reloadData()
+                self.getAlbumsActionStop()
+                errorAlert(message: "Enter the search request")
+            } else {
+                self.getAlbumsAction()
+                DataService.shared.getAlbums(request!) { (requestedAlbums) in
+                    self.albums = requestedAlbums.sorted(by: {$0.collectionName ?? "" < $1.collectionName ?? ""})
+                    DispatchQueue.main.async {
+                        let resultCount = requestedAlbums.count
+                        if resultCount == 0 {
+                            self.errorAlert(message: "Not found")
+                        }
+                        self.getAlbumsActionStop()
+                        self.collectionView.reloadData()
                     }
-                    self.getAlbumsActionStop()
-                    self.collectionView.reloadData()
                 }
+                searchBar.resignFirstResponder()
             }
-        } else if searchBar.text == nil || searchBar.text == ""{
-            self.collectionView.reloadData()
+        } else {
+            errorAlert(message: "English only")
         }
-        searchBar.resignFirstResponder()
+    }
+    
+    func errorAlert(message: String) {
+        let archiveMenu = UIAlertController(title: nil, message: "\(message)", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        archiveMenu.addAction(cancelAction)
+        
+        self.present(archiveMenu, animated: true, completion: nil)
     }
 }
 
@@ -119,6 +131,8 @@ extension MainViewController: UISearchBarDelegate {
 private extension MainViewController {
     
     func getAlbumsAction() {
+        albums.removeAll()
+        collectionView.reloadData()
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
     }
@@ -134,4 +148,16 @@ private extension MainViewController {
             self?.view.layoutIfNeeded()
         }
         )}
+    
+    func englishAlphabet() -> Bool {
+        var ok = false
+        let alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        let name = searchBar.text!
+        for i in alphabet {
+            if name.hasSuffix(String(i)) {
+                ok = true
+            }
+        }
+        return ok
+    }
 }
